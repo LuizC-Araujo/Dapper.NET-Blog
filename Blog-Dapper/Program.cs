@@ -16,7 +16,8 @@ namespace Blog_Dapper
             //ReadUser();
             //CreateUser();
             //ReadUsers();
-            UpdateUser();
+            //UpdateUser();
+            DeleteUser();
         }
 
         public static void ReadUsers()
@@ -77,6 +78,17 @@ namespace Blog_Dapper
             {
                 connection.Update<User>(user);
                 Console.WriteLine("Atualização realizado com sucesso!");
+
+            }
+        }
+
+        public static void DeleteUser()
+        {
+           using (var connection = new SqlConnection(CONNECTION_STRING))
+            {
+                var user = connection.Get<User>(2);
+                connection.Delete<User>(user);
+                Console.WriteLine("Exclusão realizado com sucesso!");
 
             }
         }
