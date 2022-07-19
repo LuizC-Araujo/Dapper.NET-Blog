@@ -12,10 +12,26 @@ namespace Blog_Dapper
         private const string CONNECTION_STRING = @"Server=localhost,1433;Database=Blog;User ID=sa;Password=1q2w3e4r@#$;TrustServerCertificate=True";
         static void Main(string[] args)
         {
+
             //ReadUser();
-            CreateUser();
+            //CreateUser();
+            //ReadUsers();
+            UpdateUser();
         }
 
+        public static void ReadUsers()
+        {
+            using (var connection = new SqlConnection(CONNECTION_STRING))
+            {
+                var users = connection.GetAll<User>();
+
+                foreach (var user in users)
+                {
+                    Console.WriteLine(user.Name);
+                }  
+
+            }
+        }
         public static void ReadUser()
         {
             using(var connection = new SqlConnection(CONNECTION_STRING))
@@ -41,6 +57,26 @@ namespace Blog_Dapper
             {
                 connection.Insert<User>(user);
                 Console.WriteLine("Cadastro realizado com sucesso!");
+
+            }
+        }
+
+        public static void UpdateUser()
+        {
+            var user = new User()
+            {
+                Id = 1,
+                Name = "Luiz Araujo",
+                Bio = "programming",
+                Email = "luiz@luiz.com",
+                Image = "https://....",
+                PasswordHash = "HASH",
+                Slug = "luiz-araujo"
+            };
+            using (var connection = new SqlConnection(CONNECTION_STRING))
+            {
+                connection.Update<User>(user);
+                Console.WriteLine("Atualização realizado com sucesso!");
 
             }
         }
