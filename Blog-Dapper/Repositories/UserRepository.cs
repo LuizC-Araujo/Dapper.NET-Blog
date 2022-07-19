@@ -1,11 +1,10 @@
-﻿using Blog_Dapper.Models;
-using Dapper.Contrib.Extensions;
+﻿using System.Collections.Generic;
+
 using Microsoft.Data.SqlClient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Dapper.Contrib.Extensions;
+
+using Blog_Dapper.Models;
+
 
 namespace Blog_Dapper.Repositories
 {
@@ -25,5 +24,27 @@ namespace Blog_Dapper.Repositories
 
         public void Create(User user)
             => _connection.Insert<User>(user);
+
+        public void Update(User user)
+        {
+            if (user.Id != 0)
+                _connection.Update<User>(user);
+        }
+
+        public void Delete(User user)
+        {
+            if (user.Id != 0)
+                _connection.Delete<User>(user);
+        }
+
+        public void Delete(int id)
+        {
+            if (id != 0)
+                return;
+
+            var user = _connection.Get<User>(id);
+            _connection.Delete<User>(user);
+        }
+
     }
 }
