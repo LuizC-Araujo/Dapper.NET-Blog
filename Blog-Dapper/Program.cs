@@ -17,22 +17,10 @@ namespace Blog_Dapper
             //CreateUser();
             //ReadUsers();
             //UpdateUser();
-            DeleteUser();
+            //DeleteUser();
         }
 
-        public static void ReadUsers()
-        {
-            using (var connection = new SqlConnection(CONNECTION_STRING))
-            {
-                var users = connection.GetAll<User>();
-
-                foreach (var user in users)
-                {
-                    Console.WriteLine(user.Name);
-                }  
-
-            }
-        }
+        
         public static void ReadUser()
         {
             using(var connection = new SqlConnection(CONNECTION_STRING))
