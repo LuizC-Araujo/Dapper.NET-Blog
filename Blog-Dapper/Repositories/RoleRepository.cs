@@ -9,10 +9,7 @@ namespace Blog_Dapper.Repositories
 {
     public class RoleRepository
     {
-        private readonly SqlConnection _connection;
-
-        public RoleRepository(SqlConnection connection)
-            => _connection = connection;
+        
 
 
         public IEnumerable<Role> Get()
