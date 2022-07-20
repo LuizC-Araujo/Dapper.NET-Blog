@@ -17,7 +17,9 @@ namespace Blog_Dapper
             connection.Open();
 
             //ReadUser();
-            //CreateUser();
+            //CreateUser(connection);
+            //CreateRole(connection);
+            CreateTag(connection);
             ReadUsers(connection);
             ReadRoles(connection);
             ReadTags(connection);
@@ -66,8 +68,9 @@ namespace Blog_Dapper
                 Console.WriteLine(item.Name);
         }
 
-        public static void CreateUser()
+        public static void CreateUser(SqlConnection connection)
         {
+            var repository = new Repository<User>(connection);
             var user = new User()
             {
                 Bio = "John Doe bio",
@@ -77,12 +80,36 @@ namespace Blog_Dapper
                 PasswordHash = "HASH",
                 Slug = "john-doe"
             };
-            using (var connection = new SqlConnection(CONNECTION_STRING))
-            {
-                connection.Insert<User>(user);
-                Console.WriteLine("Cadastro realizado com sucesso!");
 
-            }
+            repository.Create(user);
+            Console.WriteLine("Cadastro realizado com sucesso!");
+
+        }
+
+        public static void CreateRole(SqlConnection connection)
+        {
+            var repository = new Repository<Role>(connection);
+            var role = new Role()
+            {
+                Name = "Aministrador",
+                Slug = "admin"
+            };
+
+            repository.Create(role);
+            Console.WriteLine("Cadastro de role realizado com sucesso!");
+        }
+
+        public static void CreateTag(SqlConnection connection)
+        {
+            var repository = new Repository<Role>(connection);
+            var role = new Role()
+            {
+                Name = "C#",
+                Slug = "c-sharp"
+            };
+
+            repository.Create(role);
+            Console.WriteLine("Cadastro de tag realizado com sucesso!");
         }
 
         public static void UpdateUser()
