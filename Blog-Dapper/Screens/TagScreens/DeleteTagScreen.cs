@@ -24,6 +24,8 @@ namespace Blog_Dapper.Screens.TagScreens
                 option = Console.ReadLine();
             } while (Int32.TryParse(option, out id).Equals(false));
 
+            if (id == 0)
+                MenuTagScreen.Load();
             var retorno = Delete(id);
             Console.ReadKey();
             if (!retorno)

@@ -12,7 +12,7 @@ namespace Blog_Dapper.Screens.UserScreen
             Console.Clear();
             Console.WriteLine("User Delete");
             Console.WriteLine("=================");
-            Console.WriteLine("Id: ");
+            Console.WriteLine("Id to delete: ");
             string option;
             int id, count = 0;
             do
@@ -23,6 +23,8 @@ namespace Blog_Dapper.Screens.UserScreen
                 option = Console.ReadLine();
             } while (Int32.TryParse(option, out id).Equals(false));
 
+            if (id == 0)
+                MenuUserScreen.Load();
             var retorno = Delete(id);
             Console.ReadKey();
             if (!retorno)

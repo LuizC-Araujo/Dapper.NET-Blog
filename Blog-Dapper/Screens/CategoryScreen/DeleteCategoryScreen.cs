@@ -15,7 +15,8 @@ namespace Blog_Dapper.Screens.CategoryScreen
             Console.Clear();
             Console.WriteLine("Category Delete");
             Console.WriteLine("=================");
-            Console.WriteLine("Id: ");
+            Console.WriteLine("0 - Back to Menu");
+            Console.WriteLine("Id to delete: ");
             string option;
             int id, count = 0;
             do
@@ -25,7 +26,8 @@ namespace Blog_Dapper.Screens.CategoryScreen
                 count++;
                 option = Console.ReadLine();
             } while (Int32.TryParse(option, out id).Equals(false));
-
+            if (id == 0)
+                MenuCategoryScreen.Load();
             var retorno = Delete(id);
             Console.ReadKey();
             if (!retorno)
