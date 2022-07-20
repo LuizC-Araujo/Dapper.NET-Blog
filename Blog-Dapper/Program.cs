@@ -5,6 +5,7 @@ using Microsoft.Data.SqlClient;
 
 using Blog_Dapper.Models;
 using Blog_Dapper.Repositories;
+using Blog_Dapper.Screens.TagScreens;
 
 namespace Blog_Dapper
 {
@@ -13,31 +14,55 @@ namespace Blog_Dapper
         private const string CONNECTION_STRING = @"Server=localhost,1433;Database=Blog;User ID=sa;Password=1q2w3e4r@#$;TrustServerCertificate=True";
         static void Main(string[] args)
         {
-            var connection = new SqlConnection(CONNECTION_STRING);
-            connection.Open();
+            Database.Connection = new SqlConnection(CONNECTION_STRING);
+            Database.Connection.Open();
 
-            //ReadUser();
-            //CreateUser(connection);
-            //CreateRole(connection);
-            //CreateTag(connection);
-            //UpdateUser(connection);
-            //UpdateRole(connection);
-            //UpdateTag(connection);
-            //DeleteUser(connection, 2);
-            DeleteUser(connection, 3);
-            DeleteRole(connection, 3);
-            DeleteTag(connection, 2);
-            ReadUsers(connection);
-            ReadRoles(connection);
-            ReadTags(connection);
-            ReadUsersWithRoles(connection);
-            //UpdateUser();
-            //DeleteUser();
+            Load();
 
-            connection.Close();
+            Console.ReadKey();
+            Database.Connection.Close();
 
         }
 
+        private static void Load()
+        {
+            Console.Clear();
+            Console.WriteLine("Blog - Dapper");
+            Console.WriteLine("=========================");
+            Console.WriteLine("Choose an option: ");
+            Console.WriteLine();
+            Console.WriteLine("1 - User Management");
+            Console.WriteLine("2 - Profile Management");
+            Console.WriteLine("3 - Category Management");
+            Console.WriteLine("4 - Tag Management"); 
+            Console.WriteLine("5 - Link Profile/User");
+            Console.WriteLine("6 - Link Post/Tag");
+            Console.WriteLine("7 - Reports");
+            Console.WriteLine();
+            Console.WriteLine();
+
+            var option = short.Parse(Console.ReadLine()!);
+
+            switch (option)
+            {
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    MenuTagScreen.Load();
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+                case 7:
+                    break;
+                default: Load(); break;
+            }
+        }
         
         public static void ReadUser()
         {
