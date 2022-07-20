@@ -19,7 +19,14 @@ namespace Blog_Dapper
             //ReadUser();
             //CreateUser(connection);
             //CreateRole(connection);
-            CreateTag(connection);
+            //CreateTag(connection);
+            //UpdateUser(connection);
+            //UpdateRole(connection);
+            //UpdateTag(connection);
+            //DeleteUser(connection, 2);
+            DeleteUser(connection, 3);
+            DeleteRole(connection, 3);
+            DeleteTag(connection, 2);
             ReadUsers(connection);
             ReadRoles(connection);
             ReadTags(connection);
@@ -101,46 +108,103 @@ namespace Blog_Dapper
 
         public static void CreateTag(SqlConnection connection)
         {
-            var repository = new Repository<Role>(connection);
-            var role = new Role()
+            var repository = new Repository<Tag>(connection);
+            var tag = new Tag()
             {
                 Name = "C#",
                 Slug = "c-sharp"
             };
 
-            repository.Create(role);
+            repository.Create(tag);
             Console.WriteLine("Cadastro de tag realizado com sucesso!");
         }
 
-        public static void UpdateUser()
+        public static void UpdateUser(SqlConnection connection)
         {
+            var repository = new Repository<User>(connection);
             var user = new User()
             {
                 Id = 1,
-                Name = "Luiz Araujo",
-                Bio = "programming",
+                Name = "Luiz Araujo Silva",
+                Bio = "programming-2",
                 Email = "luiz@luiz.com",
                 Image = "https://....",
                 PasswordHash = "HASH",
                 Slug = "luiz-araujo"
             };
-            using (var connection = new SqlConnection(CONNECTION_STRING))
-            {
-                connection.Update<User>(user);
-                Console.WriteLine("Atualização realizado com sucesso!");
 
-            }
+            repository.Update(user);
+            Console.WriteLine("Atualização realizado com sucesso!");
         }
 
-        public static void DeleteUser()
+        public static void UpdateRole(SqlConnection connection)
         {
-           using (var connection = new SqlConnection(CONNECTION_STRING))
+            var repository = new Repository<Role>(connection);
+            var role = new Role()
             {
-                var user = connection.Get<User>(2);
-                connection.Delete<User>(user);
-                Console.WriteLine("Exclusão realizado com sucesso!");
+                Id = 2,
+                Name = "Administrator",
+                Slug = "administrator"
+            };
 
+            repository.Update(role);
+            Console.WriteLine("Atualização de role realizado com sucesso!");
+        }
+
+        public static void UpdateTag(SqlConnection connection)
+        {
+            var repository = new Repository<Tag>(connection);
+            var tag = new Tag()
+            {
+                Id = 2,
+                Name = "C-Sharp",
+                Slug = "c-sharp"
+            };
+
+            repository.Update(tag);
+            Console.WriteLine("Atualização de tag realizado com sucesso!");
+        }
+
+        public static void DeleteUser(SqlConnection connection, int id)
+        {
+            var repository = new Repository<User>(connection);
+            var user = repository.Get(id);
+            if(user == null)
+            {
+                Console.WriteLine("User not found!");
+                return;
             }
+
+            repository.Delete(user);
+            Console.WriteLine("Exclusão realizado com sucesso!");
+        }
+
+        public static void DeleteRole(SqlConnection connection, int id)
+        {
+            var repository = new Repository<Role>(connection);
+            var role = repository.Get(id);
+            if (role == null)
+            {
+                Console.WriteLine("Role not found!");
+                return;
+            }
+
+            repository.Delete(role);
+            Console.WriteLine("Exclusão de role realizado com sucesso!");
+        }
+
+        public static void DeleteTag(SqlConnection connection, int id)
+        {
+            var repository = new Repository<Tag>(connection);
+            var tag = repository.Get(id);
+            if (tag == null)
+            {
+                Console.WriteLine("Tag not found!");
+                return;
+            }
+
+            repository.Delete(tag);
+            Console.WriteLine("Exclusão de role realizado com sucesso!");
         }
     }
 }
