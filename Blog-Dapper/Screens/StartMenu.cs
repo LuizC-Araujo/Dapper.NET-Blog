@@ -1,10 +1,8 @@
-﻿using Blog_Dapper.Screens.TagScreens;
+﻿using System;
+
+using Blog_Dapper.Shared;
+using Blog_Dapper.Screens.TagScreens;
 using Blog_Dapper.Screens.UserScreen;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Blog_Dapper.Screens
 {
@@ -29,7 +27,7 @@ namespace Blog_Dapper.Screens
             Console.WriteLine();
             Console.WriteLine();
 
-            var option = short.Parse(Console.ReadLine()!);
+            var option = Choose.ChooseNumber();
 
             switch (option)
             {

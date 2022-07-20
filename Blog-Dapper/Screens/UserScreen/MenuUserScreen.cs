@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+using Blog_Dapper.Shared;
 
 namespace Blog_Dapper.Screens.UserScreen
 {
@@ -22,7 +20,8 @@ namespace Blog_Dapper.Screens.UserScreen
             Console.WriteLine("5 - Back to Menu");
             Console.WriteLine();
             Console.WriteLine();
-            var option = short.Parse(Console.ReadLine()!);
+
+            var option = Choose.ChooseNumber();
 
             switch (option)
             {
@@ -39,9 +38,9 @@ namespace Blog_Dapper.Screens.UserScreen
                     DeleteUserScreen.Load();
                     break;
                 case 5:
-
+                    StartMenu.Load();
                     break;
-                default: Load(ListUserScreen); break;
+                default: Load(); break;
             }
         }
     }
