@@ -26,7 +26,7 @@ namespace Blog_Dapper.Shared
             return option;
         }
 
-        public static int ChooseIdOnDelete()
+        public static int ChooseId()
         {
             string option;
             int id, count = 0;
@@ -40,5 +40,6 @@ namespace Blog_Dapper.Shared
 
             return id;
         }
+    
     }
 }

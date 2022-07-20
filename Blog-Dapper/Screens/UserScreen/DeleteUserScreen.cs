@@ -15,7 +15,7 @@ namespace Blog_Dapper.Screens.UserScreen
             Console.WriteLine("=================");
             Console.WriteLine("Id to delete: ");
 
-            var id = Choose.ChooseIdOnDelete();
+            var id = Choose.ChooseId();
 
             if (id == 0)
                 MenuUserScreen.Load();
