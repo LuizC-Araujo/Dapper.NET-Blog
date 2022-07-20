@@ -16,7 +16,7 @@ namespace Blog_Dapper.Screens.CategoryScreen
             Console.WriteLine("0 - Back to Menu");
             Console.WriteLine("Id to delete: ");
 
-            var id = Choose.ChooseIdOnDelete();
+            var id = Choose.ChooseId();
 
             if (id == 0)
                 MenuCategoryScreen.Load();

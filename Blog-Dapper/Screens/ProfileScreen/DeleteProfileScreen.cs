@@ -18,7 +18,7 @@ namespace Blog_Dapper.Screens.ProfileScreen
             Console.WriteLine("=================");
             Console.WriteLine("Id: ");
 
-            var id = Choose.ChooseIdOnDelete();
+            var id = Choose.ChooseId();
 
             if (id == 0)
                 MenuProfileScreen.Load();
