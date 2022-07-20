@@ -37,7 +37,7 @@ namespace Blog_Dapper.Screens.TagScreens
                     DeleteTagScreen.Load();
                     break;
                 case 5:
-                    StartMenu.Load();
+                    StartMenuScreen.Load();
                     break;
                 default: Load(); break;
             }

@@ -41,7 +41,7 @@ namespace Blog_Dapper.Screens.CategoryScreen
                     DeleteCategoryScreen.Load();
                     break;
                 case 5:
-                    StartMenu.Load();
+                    StartMenuScreen.Load();
                     break;
                 default: Load(); break;
             }

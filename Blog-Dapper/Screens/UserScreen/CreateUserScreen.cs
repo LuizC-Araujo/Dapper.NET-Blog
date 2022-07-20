@@ -51,8 +51,6 @@ namespace Blog_Dapper.Screens.UserScreen
                 Console.WriteLine("Não foi possível cadastrar o usuário!");
                 Console.WriteLine($"Erro: {ex.Message}");
             }
-            
-
         }
     }
 }

@@ -38,7 +38,7 @@ namespace Blog_Dapper.Screens.UserScreen
                     DeleteUserScreen.Load();
                     break;
                 case 5:
-                    StartMenu.Load();
+                    StartMenuScreen.Load();
                     break;
                 default: Load(); break;
             }
