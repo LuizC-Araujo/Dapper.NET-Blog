@@ -5,6 +5,7 @@ using Blog_Dapper.Screens.TagScreens;
 using Blog_Dapper.Screens.UserScreen;
 using Blog_Dapper.Screens.ProfileScreen;
 using Blog_Dapper.Screens.CategoryScreen;
+using Blog_Dapper.Screens.UserRoleScreen;
 
 namespace Blog_Dapper.Screens
 {
@@ -46,6 +47,7 @@ namespace Blog_Dapper.Screens
                     MenuTagScreen.Load();
                     break;
                 case 5:
+                    MenuUserRoleScreen.Load();
                     break;
                 case 6:
                     break;
