@@ -1,6 +1,7 @@
-﻿using Blog_Dapper.Models;
+﻿using System;
+
+using Blog_Dapper.Models;
 using Blog_Dapper.Repositories;
-using System;
 
 namespace Blog_Dapper.Screens.UserScreen
 {

@@ -1,10 +1,7 @@
-﻿using Blog_Dapper.Models;
+﻿using System;
+
+using Blog_Dapper.Models;
 using Blog_Dapper.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Blog_Dapper.Screens.TagScreens
 {
