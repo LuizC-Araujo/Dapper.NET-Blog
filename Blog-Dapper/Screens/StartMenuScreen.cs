@@ -6,6 +6,7 @@ using Blog_Dapper.Screens.UserScreen;
 using Blog_Dapper.Screens.ProfileScreen;
 using Blog_Dapper.Screens.CategoryScreen;
 using Blog_Dapper.Screens.UserRoleScreen;
+using Blog_Dapper.Screens.OtherScreen;
 
 namespace Blog_Dapper.Screens
 {
@@ -24,7 +25,7 @@ namespace Blog_Dapper.Screens
             Console.WriteLine("2 - Profile Management");
             Console.WriteLine("3 - Category Management");
             Console.WriteLine("4 - Tag Management");
-            Console.WriteLine("5 - Link Profile/User");
+            Console.WriteLine("5 - Link User/Profile");
             Console.WriteLine("6 - Link Post/Tag");
             Console.WriteLine("7 - Reports");
             Console.WriteLine();
@@ -50,6 +51,7 @@ namespace Blog_Dapper.Screens
                     MenuUserRoleScreen.Load();
                     break;
                 case 6:
+                    LinkPostTagScreen.Load();
                     break;
                 case 7:
                     break;

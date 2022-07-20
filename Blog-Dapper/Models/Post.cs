@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Dapper.Contrib.Extensions;
+using System;
 
 namespace Blog_Dapper.Models
 {
+    [Table("[Post]")]
     public class Post
     {
         public int Id { get; set; }
