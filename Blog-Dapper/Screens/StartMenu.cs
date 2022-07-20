@@ -3,6 +3,7 @@
 using Blog_Dapper.Shared;
 using Blog_Dapper.Screens.TagScreens;
 using Blog_Dapper.Screens.UserScreen;
+using Blog_Dapper.Screens.CategoryScreen;
 
 namespace Blog_Dapper.Screens
 {
@@ -35,8 +36,10 @@ namespace Blog_Dapper.Screens
                     MenuUserScreen.Load();
                     break;
                 case 2:
+                    
                     break;
                 case 3:
+                    MenuCategoryScreen.Load();
                     break;
                 case 4:
                     MenuTagScreen.Load();
