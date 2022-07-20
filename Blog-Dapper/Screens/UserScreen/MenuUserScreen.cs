@@ -4,21 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Blog_Dapper.Screens.TagScreens
+namespace Blog_Dapper.Screens.UserScreen
 {
-    public class MenuTagScreen
+    public class MenuUserScreen
     {
         public static void Load()
         {
             Console.Clear();
-            Console.WriteLine("Tag Management");
+            Console.WriteLine("User Management");
             Console.WriteLine("==================");
             Console.WriteLine("Choose an option: ");
             Console.WriteLine();
-            Console.WriteLine("1 - List Tags");
-            Console.WriteLine("2 - Create Tag");
-            Console.WriteLine("3 - Update Tag");
-            Console.WriteLine("4 - Delete Tag");
+            Console.WriteLine("1 - List Users");
+            Console.WriteLine("2 - Create User");
+            Console.WriteLine("3 - Update User");
+            Console.WriteLine("4 - Delete User");
             Console.WriteLine("5 - Back to Menu");
             Console.WriteLine();
             Console.WriteLine();
@@ -27,21 +27,21 @@ namespace Blog_Dapper.Screens.TagScreens
             switch (option)
             {
                 case 1:
-                    ListTagScreen.Load();
+                    ListUserScreen.Load();
                     break;
                 case 2:
-                    CreateTagScreen.Load();
+                    CreateUserScreen.Load();
                     break;
                 case 3:
-                    UpdateTagScreen.Load();
+                    UpdateUserScreen.Load();
                     break;
                 case 4:
-                    DeleteTagScreen.Load();
+                    DeleteUserScreen.Load();
                     break;
                 case 5:
-                    Load();
+
                     break;
-                default: Load(); break;
+                default: Load(ListUserScreen); break;
             }
         }
     }
