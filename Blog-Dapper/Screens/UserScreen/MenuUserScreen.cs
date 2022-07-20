@@ -21,7 +21,7 @@ namespace Blog_Dapper.Screens.UserScreen
             Console.WriteLine();
             Console.WriteLine();
 
-            var option = Choose.ChooseNumber();
+            var option = Choose.ChooseNumberOnMenu();
 
             switch (option)
             {

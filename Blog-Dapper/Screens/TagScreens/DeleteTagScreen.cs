@@ -2,6 +2,7 @@
 
 using Blog_Dapper.Models;
 using Blog_Dapper.Repositories;
+using Blog_Dapper.Shared;
 
 namespace Blog_Dapper.Screens.TagScreens
 {
@@ -13,16 +14,8 @@ namespace Blog_Dapper.Screens.TagScreens
             Console.WriteLine("Delete Tag");
             Console.WriteLine("=================");
             Console.WriteLine("Id: ");
-           
-            string option;
-            int id, count = 0;
-            do
-            {
-                if (count > 0)
-                    Console.WriteLine("Por favor, digite um número!");
-                count++;
-                option = Console.ReadLine();
-            } while (Int32.TryParse(option, out id).Equals(false));
+
+            var id = Choose.ChooseIdOnDelete();
 
             if (id == 0)
                 MenuTagScreen.Load();

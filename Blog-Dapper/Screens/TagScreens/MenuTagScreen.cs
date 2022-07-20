@@ -20,7 +20,7 @@ namespace Blog_Dapper.Screens.TagScreens
             Console.WriteLine("5 - Back to Menu");
             Console.WriteLine();
             Console.WriteLine();
-            var option = Choose.ChooseNumber();
+            var option = Choose.ChooseNumberOnMenu();
 
             switch (option)
             {

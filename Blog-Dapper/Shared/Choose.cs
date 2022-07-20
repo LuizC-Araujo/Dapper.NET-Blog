@@ -8,7 +8,7 @@ namespace Blog_Dapper.Shared
 {
    public class Choose
     {
-        public static int ChooseNumber()
+        public static int ChooseNumberOnMenu()
         {
             bool verification;
             int option, count = 0;
@@ -24,6 +24,21 @@ namespace Blog_Dapper.Shared
             } while (verification.Equals(false));
 
             return option;
+        }
+
+        public static int ChooseIdOnDelete()
+        {
+            string option;
+            int id, count = 0;
+            do
+            {
+                if (count > 0)
+                    Console.WriteLine("Por favor, digite um número!");
+                count++;
+                option = Console.ReadLine();
+            } while (Int32.TryParse(option, out id).Equals(false));
+
+            return id;
         }
     }
 }

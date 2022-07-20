@@ -1,5 +1,6 @@
 ﻿using System;
 
+using Blog_Dapper.Shared;
 using Blog_Dapper.Models;
 using Blog_Dapper.Repositories;
 
@@ -13,15 +14,8 @@ namespace Blog_Dapper.Screens.UserScreen
             Console.WriteLine("User Delete");
             Console.WriteLine("=================");
             Console.WriteLine("Id to delete: ");
-            string option;
-            int id, count = 0;
-            do
-            {
-                if (count > 0)
-                    Console.WriteLine("Por favor, digite um número!");
-                count++;
-                option = Console.ReadLine();
-            } while (Int32.TryParse(option, out id).Equals(false));
+
+            var id = Choose.ChooseIdOnDelete();
 
             if (id == 0)
                 MenuUserScreen.Load();

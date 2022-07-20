@@ -1,10 +1,8 @@
-﻿using Blog_Dapper.Models;
+﻿using System;
+
+using Blog_Dapper.Models;
+using Blog_Dapper.Shared;
 using Blog_Dapper.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Blog_Dapper.Screens.CategoryScreen
 {
@@ -17,15 +15,9 @@ namespace Blog_Dapper.Screens.CategoryScreen
             Console.WriteLine("=================");
             Console.WriteLine("0 - Back to Menu");
             Console.WriteLine("Id to delete: ");
-            string option;
-            int id, count = 0;
-            do
-            {
-                if (count > 0)
-                    Console.WriteLine("Por favor, digite um número!");
-                count++;
-                option = Console.ReadLine();
-            } while (Int32.TryParse(option, out id).Equals(false));
+
+            var id = Choose.ChooseIdOnDelete();
+
             if (id == 0)
                 MenuCategoryScreen.Load();
             var retorno = Delete(id);
