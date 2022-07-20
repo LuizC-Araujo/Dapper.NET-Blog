@@ -3,10 +3,11 @@
 using Blog_Dapper.Shared;
 using Blog_Dapper.Screens.TagScreens;
 using Blog_Dapper.Screens.UserScreen;
+using Blog_Dapper.Screens.OtherScreen;
+using Blog_Dapper.Screens.ReportScreen;
 using Blog_Dapper.Screens.ProfileScreen;
 using Blog_Dapper.Screens.CategoryScreen;
 using Blog_Dapper.Screens.UserRoleScreen;
-using Blog_Dapper.Screens.OtherScreen;
 
 namespace Blog_Dapper.Screens
 {
@@ -54,6 +55,7 @@ namespace Blog_Dapper.Screens
                     LinkPostTagScreen.Load();
                     break;
                 case 7:
+                    MenuReportScreen.Load();
                     break;
                 default: Load(); break;
             }

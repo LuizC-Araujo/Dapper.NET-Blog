@@ -14,10 +14,10 @@ namespace Blog_Dapper.Screens.UserRoleScreen
             Console.Clear();
             Console.WriteLine("List UserRole");
             Console.WriteLine("=======================");
-            List();
+            ShowList();
         }
 
-        public static void List()
+        public static void ShowList()
         {
             var repository = new UserRepository(Database.Connection); ;
             var users = repository.GetWithRoles();
@@ -31,6 +31,14 @@ namespace Blog_Dapper.Screens.UserRoleScreen
                 }
                 Console.WriteLine();
             }
-        }      
+        }
+
+        public static List<User> ReturnList()
+        {
+            var repository = new UserRepository(Database.Connection); ;
+            var users = repository.GetWithRoles();
+
+            return users;
+        }
     }
 }
