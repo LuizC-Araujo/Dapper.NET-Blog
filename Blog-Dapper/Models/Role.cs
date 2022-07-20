@@ -2,7 +2,7 @@
 
 namespace Blog_Dapper.Models
 {
-    [Table("[Role")]
+    [Table("[Role]")]
     public class Role
     {
         public int Id { get; set; }

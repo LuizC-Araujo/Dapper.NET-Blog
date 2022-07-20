@@ -2,7 +2,7 @@
 
 namespace Blog_Dapper.Models
 {
-    [Table("[Tag")]
+    [Table("[Tag]")]
     public class Tag
     {
         public int Id { get; set; }
