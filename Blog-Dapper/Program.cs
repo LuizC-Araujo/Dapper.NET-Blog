@@ -30,6 +30,7 @@ namespace Blog_Dapper
             ReadUsers(connection);
             ReadRoles(connection);
             ReadTags(connection);
+            ReadUsersWithRoles(connection);
             //UpdateUser();
             //DeleteUser();
 
@@ -205,6 +206,21 @@ namespace Blog_Dapper
 
             repository.Delete(tag);
             Console.WriteLine("Exclusão de role realizado com sucesso!");
+        }
+
+        public static void ReadUsersWithRoles(SqlConnection connection)
+        {
+            var repository = new UserRepository(connection);
+            var items = repository.GetWithRoles();
+
+            foreach (var item in items)
+            {
+                Console.WriteLine(item.Name);
+                foreach (var role in item.Roles)
+                {
+                    Console.WriteLine($" - {role.Name}");
+                }
+            }
         }
     }
 }
